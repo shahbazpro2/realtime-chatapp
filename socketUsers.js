@@ -1,31 +1,30 @@
 const users = []
 
-const addUser = ( id) => {
-
-     const existingUser = users.find(user => user === id)
-     
+function addUser(id) {
+    const existingUser = users.find(user => user === id)
     if (!existingUser) {
-        
         users.push(id)
-        return id 
-    }else{
+        return id
+    } else {
         const index = users.findIndex(user => user === id)
-
-        if (index !== -1)  users.splice(index, 1)[0]
+        if (index !== -1) users.splice(index, 1)[0]
         users.push(id)
-        return id 
+        return id
     }
-    
+
 }
 
-const removeUser = (id) => {
+function removeUser(id) {
     const index = users.findIndex(user => user === id)
-
     if (index !== -1) return users.splice(index, 1)[0]
 }
 
-const getUser = (id) => users.find(user => user === id)
+function getUser(id) {
+    return users.find(user => user === id);
+}
 
-const getAllUsers= ()=> users
+function getAllUsers() {
+    return users;
+}
 
-module.exports = { addUser, removeUser, getUser,getAllUsers}
+module.exports = {addUser, removeUser, getUser, getAllUsers}
