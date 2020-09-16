@@ -1,0 +1,13 @@
+.leftside{
+    width: 200px;
+    min-height: 50px;
+    border-radius: 50px;
+    background-color: #f4f4f4;
+}
+.rightside{
+    margin-left: auto;
+    width: 200px;
+    min-height: 50px;
+    border-radius: 50px;
+    background-color: #dfdfdf;
+}
