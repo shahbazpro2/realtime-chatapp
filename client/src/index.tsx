@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../node_modules/jquery/dist/jquery'
-import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import 'antd/dist/antd.css';
+import 'jquery/dist/jquery'
+import 'bootstrap/dist/css/bootstrap.css'
 
 import App from './App';
 

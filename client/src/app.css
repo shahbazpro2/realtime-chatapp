@@ -1,13 +1,57 @@
 .leftside{
-    width: 200px;
-    min-height: 50px;
     border-radius: 50px;
     background-color: #f4f4f4;
+    display: table;
+    max-width: 310px;
 }
 .rightside{
     margin-left: auto;
-    width: 200px;
-    min-height: 50px;
     border-radius: 50px;
     background-color: #dfdfdf;
+    display: table;
+    max-width: 310px;
+}
+body{
+    background-color: #f7f7f7;
+}
+.active,.active:hover{
+    background-color: #e5f8e6 !important;
+}
+.mbody{
+    height: 350px;
+}
+.pf{
+    width: 70px;
+}
+.left-col{
+    border-right: 1px solid #e7e7e7;
+    height: 100%;
+}
+.messageBox{
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    background-color: white;
+}
+.innerbox{
+    height: 500px;
+}
+.upperbox{
+    height: 70px;
+    border-bottom: 1px solid #e7e7e7;
+}
+.messageBox .list{
+    cursor: pointer;
+}
+.list:hover{
+    background-color: #f7f7f7;
+}
+.ant-avatar{
+    width: 45px !important;
+    height: 45px !important;
+}
+.messageBox .title{
+    font-size: 14px;
+}
+.messageBox .smessage{
+    margin-top: -3px;
 }
