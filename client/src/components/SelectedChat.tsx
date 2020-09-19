@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Socket } from 'socket.io-client'
 interface Messages {
     senderId: string,
     username: string,
