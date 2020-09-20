@@ -18,7 +18,6 @@ io.on('connection', socket => {
     })
     socket.on('userdata', ({ id, userId }) => {
         let data = getUser(id)[0]
-        console.log(userId)
         io.to(userId).emit('receivedData', data)
     })
     socket.on('allusers', () => {
@@ -28,8 +27,9 @@ io.on('connection', socket => {
     socket.on('getmessages', id => {
         io.to(id).emit('message-server', messages)
     })
-    socket.on('message-client', ({ senderId, username, to, nicname, message }) => {
-        messages.push({ senderId, to, username, nicname, message })
+    socket.on('message-client', ({ senderId, username, to, nicname, message, date }) => {
+        console.log(date)
+        messages.push({ senderId, to, username, nicname, message, date })
         io.emit('message-server', messages)
     })
 })

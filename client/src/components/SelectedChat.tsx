@@ -1,16 +1,6 @@
 import React, { useEffect, useState } from 'react'
-interface Messages {
-    senderId: string,
-    username: string,
-    nicname: string,
-    message: string,
-    to: string,
-}
-interface User {
-    id: string,
-    username: string,
-    nicname: string
-}
+import { Messages, User } from './Types'
+
 interface Prop {
     user: User
     messages: Messages[]
@@ -37,13 +27,43 @@ const SelectedChat = ({ messages, user, to, toUser, sendMessage }: Prop) => {
 
         setValue('')
     }
+    const getDateTime = (date: string) => {
+        var today = new Date(date);
+        return `${today.getFullYear()}-${(today.getMonth() + 1)}-${today.getDate()}  ${(today.getHours() + 24) % 12 || 12}:${today.getMinutes() < 10 ? `0${today.getMinutes()}` : today.getMinutes()}`
+
+    }
     const showMessages = () => {
         if (userMessages && userMessages.length > 0) {
             return userMessages.map((message, index) => (
-                message && message.senderId === user.id ? <div key={index} className="rightside p-3 mb-2">
-                    {message.message}
-                </div> : <div key={index} className="leftside p-3 mb-2">
-                        {message && message.message}
+                message && message.senderId === user.id ?
+                    <div key={index} className="rightside py-2 px-4 mb-2">
+                        <div className="message">
+                            <div className="time text-right">
+                                <div className="d-flex font-weight-bold align-items-center">
+                                    {message.username}
+                                    <small className="ml-2 text-muted">{getDateTime(message.date)}</small>
+                                </div>
+
+                            </div>
+                            {message.message}
+
+                        </div>
+
+
+                    </div> : <div key={index} className="leftside py-2 px-4 mb-2">
+                        <div className="message">
+                            <div className="time text-right">
+                                <div className="d-flex font-weight-bold align-items-center">
+                                    {message && message.username}
+                                    <small className="ml-2 text-muted">{message && getDateTime( message.date)}</small>
+                                </div>
+
+                            </div>
+                            {message && message.message}
+
+                        </div>
+
+
                     </div>
             ))
         }
@@ -72,15 +92,21 @@ const SelectedChat = ({ messages, user, to, toUser, sendMessage }: Prop) => {
                     <div className="mt-3">
                         <div className="d-flex align-items-center">
                             <div className="pf">Id:</div>
-                            <small className="ml-4">{toUser && toUser.id}</small>
+                            <div className="ml-auto">
+                                <small className="ml-4">{toUser && toUser.id}</small>
+                            </div>
                         </div>
                         <div className="d-flex align-items-center">
                             <div className="pf">Username:</div>
-                            <small className="ml-4">{toUser && toUser.username}</small>
+                            <div className="ml-auto">
+                                <small className="ml-4">{toUser && toUser.username}</small>
+                            </div>
                         </div>
                         <div className="d-flex align-items-center">
-                            <div className="pf">nicname:</div>
-                            <small className="ml-4">{toUser && toUser.nicname}</small>
+                            <div className="pf">Nicname:</div>
+                            <div className="ml-auto">
+                                <small className="ml-4">{toUser && toUser.nicname}</small>
+                            </div>
                         </div>
                     </div>
                 </div>
