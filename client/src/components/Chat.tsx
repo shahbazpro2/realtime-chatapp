@@ -66,7 +66,7 @@ const Chat = ({ history }: Props) => {
                 </div>
                 <div className="mtext ml-2">
                     <div className="title"><strong>{user.username}</strong></div>
-                    <div className="smessage"><small>Me: i am fine</small></div>
+                    {/* <div className="smessage"><small>Me: i am fine</small></div> */}
                 </div>
             </div>
         </div>

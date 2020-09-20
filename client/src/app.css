@@ -55,3 +55,6 @@ body{
 .messageBox .smessage{
     margin-top: -3px;
 }
+.message,.profile{
+    font-size: 14px;
+}

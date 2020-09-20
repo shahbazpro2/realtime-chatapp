@@ -5,16 +5,18 @@ const server = app.listen(port, () => console.log(`Server running on port ${port
 const io = require('socket.io')(server)
 
 const { addUser, getUser, getAllUsers } = require('./socketUsers.js')
-let messages = []
+let messages = [], online = []
 io.on('connection', socket => {
     socket.on('join', ({ id, username, nicname }) => {
-        /* socket.emit('message-server', messages) */
         const userId = addUser(id, username, nicname)
         if (userId !== undefined) {
             socket.join(userId)
             const getData = getUser(userId)[0]
             io.to(userId).emit('joined', getData)
         }
+    })
+    socket.on('getOnline',(id)=>{
+        io.to(id).emit('serverOnline', online)
     })
     socket.on('userdata', ({ id, userId }) => {
         let data = getUser(id)[0]
@@ -28,7 +30,6 @@ io.on('connection', socket => {
         io.to(id).emit('message-server', messages)
     })
     socket.on('message-client', ({ senderId, username, to, nicname, message, date }) => {
-        console.log(date)
         messages.push({ senderId, to, username, nicname, message, date })
         io.emit('message-server', messages)
     })

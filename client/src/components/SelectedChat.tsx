@@ -39,8 +39,8 @@ const SelectedChat = ({ messages, user, to, toUser, sendMessage }: Prop) => {
                     <div key={index} className="rightside py-2 px-4 mb-2">
                         <div className="message">
                             <div className="time text-right">
-                                <div className="d-flex font-weight-bold align-items-center">
-                                    {message.username}
+                                <div className="d-flex align-items-center">
+                                    <strong>{message.username}</strong>
                                     <small className="ml-2 text-muted">{getDateTime(message.date)}</small>
                                 </div>
 
@@ -53,8 +53,8 @@ const SelectedChat = ({ messages, user, to, toUser, sendMessage }: Prop) => {
                     </div> : <div key={index} className="leftside py-2 px-4 mb-2">
                         <div className="message">
                             <div className="time text-right">
-                                <div className="d-flex font-weight-bold align-items-center">
-                                    {message && message.username}
+                                <div className="d-flex align-items-center">
+                                    <strong>  {message && message.username}</strong>
                                     <small className="ml-2 text-muted">{message && getDateTime( message.date)}</small>
                                 </div>
 
@@ -93,19 +93,19 @@ const SelectedChat = ({ messages, user, to, toUser, sendMessage }: Prop) => {
                         <div className="d-flex align-items-center">
                             <div className="pf">Id:</div>
                             <div className="ml-auto">
-                                <small className="ml-4">{toUser && toUser.id}</small>
+                                <div className="ml-4">{toUser && toUser.id}</div>
                             </div>
                         </div>
                         <div className="d-flex align-items-center">
                             <div className="pf">Username:</div>
                             <div className="ml-auto">
-                                <small className="ml-4">{toUser && toUser.username}</small>
+                                <div className="ml-4">{toUser && toUser.username}</div>
                             </div>
                         </div>
                         <div className="d-flex align-items-center">
                             <div className="pf">Nicname:</div>
                             <div className="ml-auto">
-                                <small className="ml-4">{toUser && toUser.nicname}</small>
+                                <div className="ml-4">{toUser && toUser.nicname}</div>
                             </div>
                         </div>
                     </div>
