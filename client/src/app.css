@@ -19,6 +19,7 @@ body{
 }
 .mbody{
     height: 350px;
+    overflow: auto;
 }
 .pf{
     width: 70px;
@@ -58,3 +59,10 @@ body{
 .message,.profile{
     font-size: 14px;
 }
+div.vertical-line{
+    width: 1px; 
+    background-color: #e7e7e7;
+    height: 18px; 
+    margin-top: 3px;
+    float: left; 
+  }

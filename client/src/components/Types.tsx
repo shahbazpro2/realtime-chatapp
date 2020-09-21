@@ -11,3 +11,8 @@ export interface User {
     username: string,
     nicname: string
 }
+export interface Online {
+    id: string,
+    date: string,
+    status: boolean
+}
