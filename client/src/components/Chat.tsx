@@ -77,6 +77,7 @@ const Chat = ({ history }: Props) => {
         setSelected(id)
     }
     const showOnlne = (id: string) => {
+        console.log('onlineid',id)
         const check = online.filter(o => o.id === id)
         if (check.length > 0 && check[0].status === true)
             return <div className="online ml-2">
@@ -106,7 +107,7 @@ const Chat = ({ history }: Props) => {
                     <div className="unread ml-auto">
                         <Badge count={unread.filter(r => (((r.senderId === suser.id) && (r.to === user.id)) && (r.senderId !== selected))).length} />
                     </div>}
-                {showOnlne(user.id)}
+                {showOnlne(suser.id)}
             </div>
         </div>
     )
